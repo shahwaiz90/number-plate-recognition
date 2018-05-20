@@ -43,7 +43,9 @@ public class Result extends AppCompatActivity {
     }
     //function for searching the number plate and scrapping the result
     public String find(String number) throws IOException {
-
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
++                .permitAll().build();
++        StrictMode.setThreadPolicy(policy);
         StringBuffer string = new StringBuffer();
         String url = "http://www.mtmis.excise-punjab.gov.pk";
         Document doc = Jsoup.connect(url)
